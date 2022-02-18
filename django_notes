@@ -1,0 +1,149 @@
+ ===django cheatsheets===
+ https://dev.to/ericchapman/my-beloved-django-cheat-sheet-2056
+ https://edu.anarcho-copy.org/Programming%20Languages/Python/Python%20CheatSheet/beginners_python_cheat_sheet_pcc_django.pdf
+ 
+ ===new django project===
+ django-admin startproject <projectname>
+ 
+ 
+ ===activate virtual env===
+ source ~/.virtualenvs/djangodev/bin/activate
+ 
+ ===start dev server===
+ python3 manage.py runserver
+ 
+ 
+===make new app in django project===
+python3 manage.py startpp <appname>
+
+===basic process for making new app===
+1. make app as listed above
+
+2. create view
+
+3. add app url
+
+4. add app url to project
+
+5. migrate: "python3 manage.py migrate"
+
+6. add app to installed apps
+
+7. python3 manage.py makemigrations my_app
+
+
+===templates===
+
+must be in this format <project>/<app_name>/"templates"/<app_name>/<file>.html
+
+==django template tags and filters===
+- similar to data annotations
+- https://docs.djangoproject.com/en/4.0/ref/templates/builtins/
+
+
+===static files===
+https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+in the settings.py file under the STATIC_URL variable
+
+
+===sqlite===
+https://www.sqlite.org/whentouse.html
+
+===model fields===
+https://docs.djangoproject.com/en/4.0/topics/db/models/
+
+
+===migrations===
+manage.py make migrations <appname>: stages migrations but does not run them against the db
+
+manage.py migrate: runs existing migrations
+
+manage.py sqlmigrate app 0001: shows actual sql query
+
+steps for migrations:
+	1. initial project migrate command
+	2. create app and create models
+	3. register app in INSTALLED_APPS in settings.py
+	4. Run makemigrations for new app
+	5. Rune migrate for new migrations
+
+
+
+===save to db===
+1. create instance of object
+2. <object>.save()
+
+or
+
+<class_name>.objects.create(<properties>)
+
+or
+
+create objects in bulk:
+
+<class_name>.objects.bulk_create(mylist)
+
+
+==query docs===
+https://docs.djangoproject.com/en/4.0/topics/db/queries/
+
+
+===get() and filter()===
+
+get() is good for a single record
+
+===Q===
+Q object. Allows you to use boolean logic
+
+
+===field_lookup===
+special syntax for more advanced searches
+https://docs.djangoproject.com/en/4.0/ref/models/querysets/
+
+
+===model field validators===
+https://docs.djangoproject.com/en/4.0/ref/validators/
+
+
+===model deafults and validation===
+use defaults when possible:
+heartrate = models.IntegerField(default=60, validators=[MinValueValidator(1),MaxValueValidator(300)])
+
+===update==
+query for object
+save into a variable
+variable.property = new property
+save to db
+
+
+
+==form csrf token===
+needs {% csrf_token %} tag
+
+
+===working with forms===
+https://docs.djangoproject.com/en/4.0/topics/forms/
+
+all django needs is a form tag and submit input button
+
+===widgets===
+https://docs.djangoproject.com/en/4.0/ref/forms/widgets/
+
+you can pass attributes which add css classes
+
+===model forms aka autmocatic forms===
+https://docs.djangoproject.com/en/4.0/topics/forms/modelforms/
+
+
+==built in error messages====
+https://docs.djangoproject.com/en/4.0/ref/forms/fields/
+
+===CRUD operations via class based views===
+https://docs.djangoproject.com/en/4.0/topics/class-based-views/
+
+
+===course notes===
+https://drive.google.com/drive/folders/1GlzBNEDLOgNlyyPKfjxhBpWYJXtQyLhy
+
+
